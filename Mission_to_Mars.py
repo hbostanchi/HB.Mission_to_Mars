@@ -84,11 +84,36 @@ df = pd.read_html('http://space-facts.com/mars/')[0]
 df.columns=['description', 'value']
 df.set_index('description', inplace=True)
 df
+# Hemisphere Images
+def hemispheres_image(browser):
+    hemisphere={}
+    hemisphere = []
+    for i in range(0,4):
+        url="https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
+        browser.visit(url)
+        # Select link for each hemisphere
+        image_link[i].click()
+        #hTML parser set
+        html = browser.html
+        isoup_url = BeautifulSoup(html, 'html.parser')
+        image_url = news_soup.select_one('img', class_='wide-image').get('src')
+        # Find the links to see the full images and get titles
+        image_link=browser.find_link_by_partial_text("Hemisphere Enhanced")[i]
+        image_titles = isoup_url.find_all('h3')
+        
+        #hemisphere url
+        hemisphere_url = f'https://astrogeology.usgs.gov{image_url}'
+
+        # Store image url and title in dictionary hemi_dict
+        hemisphere_dict = {
+            'img_url': hemisphere_url,
+            'title': image_titles[i].text
+        }
+        hemisphere.append(hemisphere_dict)
+    browser.back()
+    return hemisphere
 
 
 
 
 
-
-
-# %%
