@@ -5,24 +5,7 @@
 
 
 from splinter import Browser
-from bs4 import BeautifulSoup
-
-
-# # In[2]:
-
-
-# get_ipython().system('which chromedriver')
-
-
-# # In[3]:
-
-
-# # Windows users
-# executable_path = {'executable_path': 'chromedriver.exe'}
-# browser = Browser('chrome', **executable_path, headless=False)
-
-
-# In[4]:
+from bs4 import BeautifulSoup# In[4]:
 def mars_news(browser):
 
 

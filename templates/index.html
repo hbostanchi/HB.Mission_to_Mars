@@ -42,3 +42,37 @@
     <div class="col-md-4">
     </div>
    </div>
+      <!-- Mars Hemisphere Images --> 
+
+      {% if mars.hemisphere_images %}
+      <div id="mars-hemisphere-image"> 
+          <div class="row" >
+              <div class="col-sm-5 col-md-5">
+                  <h3>{{mars.hemisphere_images[0]['title']}}</h3>
+                  <img src="{{mars.hemisphere_images[0]['img_url']}}" class="img-responsive img-thumbnail" alt="Responsive image">
+              </div>
+              <div class="col-sm-offset-2 col-sm-5 col-md-offset-2 col-md-5">
+                  <h3>{{mars.hemisphere_images[1]['title']}}</h3>
+                  <img src="{{mars.hemisphere_images[1]['img_url']}}" class="img-responsive img-thumbnail" alt="Responsive image">
+              </div>
+          </div>
+          <div class="row" >
+              <div class="col-md-5">
+                  <h3>{{mars.hemisphere_images[2]['title']}}</h3>
+                  <img src="{{mars.hemisphere_images[2]['img_url']}}" class="img-responsive img-thumbnail" alt="Responsive image">
+              </div>
+              <div class="col-sm-offset-2 col-sm-5 col-md-offset-2 col-md-5">
+                  <h3>{{mars.hemisphere_images[3]['title']}}</h3>
+                  <img src="{{mars.hemisphere_images[3]['img_url']}}" class="img-responsive img-thumbnail" alt="Responsive image">
+              </div>
+          </div>
+      </div>   
+      {% else %}
+      <div>
+          <h3>No hemispheres to show.</h3>
+          <p>Click the button at the top of the page.</p>
+      </div>
+      {% endif %}
+</div>
+</body>
+</html>

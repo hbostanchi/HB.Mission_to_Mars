@@ -112,6 +112,7 @@ def hemispheres_image(browser):
         hemisphere.append(hemisphere_dict)
     browser.back()
     return hemisphere
+    
 
 
 
